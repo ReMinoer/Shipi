@@ -7,3 +7,13 @@ services:
         volumes:
          - "/var/run/docker.sock:/var/run/docker.sock"
         restart: on-failure:1
+    samba:
+        image: besn0847/arm-samba
+        ports:
+         - "139:139"
+         - "445:445"
+        volumes:
+         - "/media/hdd/share:/data"
+        stdin_open: true
+        tty: true
+        restart: on-failure:1
